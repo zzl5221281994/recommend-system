@@ -1,3 +1,4 @@
+import re
 def writeBack(itemSet):
 	fp=open('itemSet.txt','a')
 	for e in itemSet:
@@ -86,14 +87,21 @@ def parseLine(str):
 		count+=1
 		l.append(genTuple(str[pos:count]))
 		count+=1
-	return l	
+	return l
+	
 def loadItemSet():
 	itemSet=list()
 	fp=open('itemSet.txt','r')
 	line=fp.readline()
+	regex='\d+,(\(\d+,\d+\.\d+\))(,(\(\d+,\d+\.\d+\)))*'
+	pattern=re.compile(regex)
 	while line!='':
-		times+=1
-		l=parseLine(line)
-		itemSet.append(l)
+		line=line.replace(' ','')
+		match=pattern.match(line[0:-1])
+		if match!=None:
+			l=parseLine(line[0:-1])
+			if l!=-1:
+				itemSet.append(l)
 		line=fp.readline()
-	return itemSet	
+	return itemSet
+#getDataSet('ratings.csv')	
