@@ -95,7 +95,12 @@ def loadItemSet():
 	line=fp.readline()
 	regex='\d+,(\(\d+,\d+\.\d+\))(,(\(\d+,\d+\.\d+\)))*'
 	pattern=re.compile(regex)
+	##
+	times=0
+	##
 	while line!='':
+		times+=1
+		##
 		line=line.replace(' ','')
 		match=pattern.match(line[0:-1])
 		if match!=None:
