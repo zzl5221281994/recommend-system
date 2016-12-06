@@ -30,9 +30,7 @@ def getUserInterest(itemSet):
 			count+=1
 		resItemSet.append(tempList)
 	return resItemSet
-def getUsrSimilarMat():
-	itemSet=loadItemSet()
-	userInterestItemSet=getUserInterest(itemSet)#
+def getUsrSimilarMat(userInterestItemSet):
 	revSearchTable=getReverseTable(userInterestItemSet)#
 	#(userId1,userId2):relation
 	userSimilarMat=dict()
@@ -66,9 +64,9 @@ def getKNN(K,usrId,userSimilarMat):
 	simiList.clear()
 	return resList 
 	
-userSimilarMat=getUsrSimilarMat()
+'''userSimilarMat=getUsrSimilarMat()
 #print(userSimilarMat)
 usrId=0
 while True:
 	usrId=input()
-	print(getKNN(5,int(usrId),userSimilarMat))
+	print(getKNN(5,int(usrId),userSimilarMat))'''

@@ -88,7 +88,7 @@ def parseLine(str):
 		l.append(genTuple(str[pos:count]))
 		count+=1
 	return l
-	
+
 def loadItemSet():
 	itemSet=list()
 	fp=open('itemSet.txt','r')
