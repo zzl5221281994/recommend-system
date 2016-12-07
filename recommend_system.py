@@ -7,6 +7,7 @@ MAX_SIMILAR_USR		5
 K_FREQUENT_ITEM		5
 FRE_ITEM_THRESH		150
 RULE_CONFID_THRESH	0.9
+TRAINSET_PORTION	0.5
 FINAL_RESULT_PATH	'finalResult.txt'
 itemSet				=loadItemSet()
 movieInfo			=loadMovieInfo()
