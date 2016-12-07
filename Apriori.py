@@ -123,12 +123,13 @@ def Apriori(itemSet,K,thresholdItem,thresholdConfidence):
 	while count<=limit:
 		K_itemSet=genFrequentK_ItemSet(count,K_itemSet,thresholdItem,supportDict,itemSet)#remember release K_itemSet
 		count+=1
+	#print(limit,K_itemSet)
 	return genAssociationRule(K_itemSet,thresholdConfidence,supportDict)
 	
-'''itemSet=loadItemSet()
-itemSet=[[1,(2,3),(3,3.5),(4,4.5),(12,2.5),(13,3.5)]]
-
-one=getOneItemSet(itemSet,150,dic)
+itemSet=loadItemSet()
+#itemSet=[[1,(2,3),(3,3.5),(4,4.5),(12,2.5),(13,3.5)]]
+'''dic=dict()
+one=getOneItemSet(itemSet,100,dic)
 #print(len(itemSet))
 print(len(one))
 two=genFrequentK_ItemSet(2,one,100,dic,itemSet)
@@ -144,7 +145,9 @@ five=genFrequentK_ItemSet(5,four,100,dic,itemSet)
 print(len(five))
 print(five)
 #print(dic)
-rule=genAssociationRule(five,0,dic)'''
-itemSet=loadItemSet()
-rule=Apriori(itemSet,5,120,0.5)
+rule=genAssociationRule(five,0,dic)
 print(rule)
+itemSet=loadItemSet()
+rule=Apriori(itemSet,4,100,0.5)
+print(rule)'''
+print(Apriori(itemSet,5,100,0))
