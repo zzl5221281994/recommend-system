@@ -85,6 +85,7 @@ def recommend_by_Apriori(K_FREQUENT_ITEM,usrId,associationRule,trainSet):
 			s=tuple(sub)
 			if s in associationRule:
 				resList.append([sub,associationRule[s]])
+	subSet.clear()
 	usrMovieList.clear()
 	print('leave Apriori')
 	return resList

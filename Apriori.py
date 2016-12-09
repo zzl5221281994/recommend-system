@@ -126,7 +126,7 @@ def Apriori(itemSet,K,thresholdItem,thresholdConfidence):
 	#print(limit,K_itemSet)
 	return genAssociationRule(K_itemSet,thresholdConfidence,supportDict)
 	
-itemSet=loadItemSet()
+#itemSet=loadItemSet()
 #itemSet=[[1,(2,3),(3,3.5),(4,4.5),(12,2.5),(13,3.5)]]
 '''dic=dict()
 one=getOneItemSet(itemSet,100,dic)
@@ -150,4 +150,4 @@ print(rule)
 itemSet=loadItemSet()
 rule=Apriori(itemSet,4,100,0.5)
 print(rule)'''
-print(Apriori(itemSet,5,100,0))
+#print(Apriori(itemSet,5,100,0))
