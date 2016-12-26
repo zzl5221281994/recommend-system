@@ -111,10 +111,13 @@ def genAssociationRule(K_itemSet,thresholdConfidence,supportDict):
 			key3.sort()
 			#print(key1,key2,key3,'#################')
 			if len(key1)==1:
-				#print(type(key1[0]),'@@@@@@@@@@@@@@@@@@@@')
-				resDict[key1[0]]=[key2,supportDict[tuple(key3)]/supportDict[key1[0]]]
+				confidence=supportDict[tuple(key3)]/supportDict[key1[0]]
+				if confidence>=thresholdConfidence:
+					resDict[key1[0]]=[key2,confidence]
 			else:
-				resDict[tuple(key1)]=[key2,supportDict[tuple(key3)]/supportDict[tuple(key1)]]
+				confidence=supportDict[tuple(key3)]/supportDict[tuple(key1)]
+				if confidence>=thresholdConfidence:
+					resDict[tuple(key1)]=[key2,confidence]
 	return resDict
 def Apriori(itemSet,K,thresholdItem,thresholdConfidence):
 	supportDict=dict()

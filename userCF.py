@@ -2,8 +2,21 @@ from itemSet import loadItemSet
 from reverseTable import getReverseTable
 import reverseTable
 import math
+def cosSimilarity1(usrScoreVector1,usrScoreVector2):
+	x=0
+	for e1,e2 in zip(usrScoreVector1,usrScoreVector2):
+		x+=e1*e2
+	y1,y2=0,0
+	for e in usrScoreVector1:
+		y1+=e*e
+	for e in usrScoreVector2:
+		y2+=e*e
+	return x/(math.sqrt(y1)*math.sqrt(y2))
+	
 def cosSimilarity(usrItemList1,usrItemList2):
 	set1,set2=set(usrItemList1),set(usrItemList2)
+	if len(set1)*len(set2)==0:
+		return 0
 	return len(set1&set2)/math.sqrt(len(set1)*len(set2))
 	
 def getList(item):
@@ -23,6 +36,7 @@ def getUserInterest(itemSet):
 			averageScore+=e[count][1]
 			count+=1
 		averageScore=averageScore/(length-1)
+		averageScore+=1
 		count=1
 		while count<length:
 			if e[count][1]>=averageScore:
